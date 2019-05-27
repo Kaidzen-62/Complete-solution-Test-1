@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Каль-Кул-Хацкер</title> <!-- Название странички-->
+  </head>
+  <body>
+    <!-- Параграфф, с надписью "Первое число:" с элементом ввода
+с индексом "val1". <br /> - переносит строку ввода на строку ниже "надписи"
+(Первое число)
+-->
+    <h4>Первое чило: <br /><input type="text" id="val1"></h4>
+    <!-- Аналогично со вторым-->
+    <h4>Второе чило: <br /><input type="text" id="val2"></h4>
+    <!--тут есть два варианта:
+    <input type="button" value="Сложить" onclick="ADD ()">
+
+    или
+
+    <button onclick="ADD ()">Сложить</button>.
+
+    Но ради (прикола?) написал оба варианта :D
+           тип ввода     название(надпись)  атрибут событий, вызывающий(в коде JS) функцию "ADD ()" -->
+    <input type="button" value="Сложить" onclick="ADD ()">
+    <p>или</p>
+    <button onclick="ADD ()">Сложить?</button>
+    <!--Наш скрипт (указываю, что код должен читаться как JS код)-->
+    <script type="text/javascript">
+      //Значения по умолчанию - для полей
+      document.getElementById('val1').value = 0.1;
+      document.getElementById('val2').value = 0.2;
+
+      function ADD () {
+        //создаю переменные
+        var num1, num2;
+        var result;
+        //если мы вызвали эту функцию, то значения "num1" и "num2" присваиваются тому, что введёт пользователь выше.
+        num1 = document.getElementById('val1').value;
+        num2 = document.getElementById('val2').value;
+        //складываем. Вот только значения, которые мы получили - это на самом деле "текст", поэтому преобразую их в числа с "плавающей" запятой.
+        result = (parseFloat(num1) + parseFloat(num2));
+        //как я понял по картинке, результат отображается в "модальное окно"
+        //так же, оругляю число до 10-ых
+        alert("Результат:\n" + "\n" + result.toFixed(1))
+      }
+    </script>
+  </body>
+</html>
